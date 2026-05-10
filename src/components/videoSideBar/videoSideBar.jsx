@@ -1,0 +1,42 @@
+import React, { useState, useEffect } from 'react';
+import Badge from 'react-bootstrap/Badge';
+import $ from 'jquery';
+
+function videoSideBar(props) {
+
+    const handleClose = () => {
+        let el = $(".footage-" + props.obj.nsuid);
+        for(let o of el) {
+            $(o).trigger('pause');
+        };
+    };
+
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape') {
+            handleClose();
+        }
+    });
+
+    return (
+        <div className="d-inline-block">
+            <Badge className="font-14 me-2 bg-pumpkin-orange py-2 px-2" style={{ border:"none" }} type="button" data-bs-toggle="offcanvas" data-bs-target={"#videos-" + props.obj.nsuid} aria-controls={"videos-" + props.obj.nsuid}>
+                <b>Videos ({ props.obj.video_gallery.length })</b>
+            </Badge>
+            <div className="offcanvas offcanvas-start" tabIndex="-1" id={"videos-" + props.obj.nsuid} aria-labelledby="video-title">
+                <div className="offcanvas-header">
+                    <h5 className="offcanvas-title" id="video-title">{props.obj.title}</h5>
+                    <button type="button" className="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close" onClick={handleClose}></button>
+                </div>
+                <div className="offcanvas-body">
+                    { props.obj.video_gallery.map((v, i) => (
+                        <video className={"ndo-video w-100 mb-5 footage-" + props.obj.nsuid} controls="true" autoplay="false" name="media" key={i}>
+                            <source src={v.src} type="video/mp4"/>
+                        </video>
+                    ))}
+                </div>
+            </div>
+        </div>
+  )
+}
+
+export default videoSideBar
