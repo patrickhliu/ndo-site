@@ -1,103 +1,103 @@
 .pointer {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 .bg-steel-blue {
-    background-color: #4682B4 !important;
-    color: white !important; /* Adjust text color for contrast */
+  background-color: #4682b4 !important;
+  color: white !important; /* Adjust text color for contrast */
 }
 
 .bg-pumpkin-orange {
-    background-color: #FF7518 !important;
-    color: white !important; /* Adjust text color for contrast */
+  background-color: #ff7518 !important;
+  color: white !important; /* Adjust text color for contrast */
 }
 
 .forest-green {
-    color: #228B22 !important;
+  color: #228b22 !important;
 }
 
 .bg-forest-green {
-    background-color: #228B22 !important;
-    color:#fff !important;
+  background-color: #228b22 !important;
+  color: #fff !important;
 }
 
 .bg-khaki {
-    background-color: #F0E68C !important;
-    color:#111 !important;
+  background-color: #f0e68c !important;
+  color: #111 !important;
 }
 
 .bg-khaki-br {
-    background-color: #F0E68C !important;
-    color:#111 !important;
-    border:2px solid #111 !important;
+  background-color: #f0e68c !important;
+  color: #111 !important;
+  border: 2px solid #111 !important;
 }
 
 .bg-cherry-inv {
-    background-color: #fff !important;
-    color:#D2042D !important;
+  background-color: #fff !important;
+  color: #d2042d !important;
 }
 
 .bg-cherry {
-    background-color: #D2042D !important;
-    color:#fff !important;
+  background-color: #d2042d !important;
+  color: #fff !important;
 }
 
 .bg-cherry-br {
-    background-color: #D2042D !important;
-    color:#fff !important;
-    border:2px solid #fff !important;
+  background-color: #d2042d !important;
+  color: #fff !important;
+  border: 2px solid #fff !important;
 }
 
 .bg-cherry-inv-br {
-    background-color: #fff !important;
-    color:#D2042D !important;
-    border:2px solid #D2042D !important;;
+  background-color: #fff !important;
+  color: #d2042d !important;
+  border: 2px solid #d2042d !important;
 }
 
 .bg-black-br {
-    background-color: #fff !important;
-    color:#111 !important;
-    border:2px solid #111 !important;
+  background-color: #fff !important;
+  color: #111 !important;
+  border: 2px solid #111 !important;
 }
 
 .font-12 {
-    font-size:12px;
-    font-family:"Tahoma", serif;
+  font-size: 12px;
+  font-family: "Tahoma", serif;
 }
 
 .font-14 {
-    font-size:14px;
-    font-family:"Tahoma", serif;
+  font-size: 14px;
+  font-family: "Tahoma", serif;
 }
 
 .font-16 {
-    font-size:16px;
-    font-family:"Tahoma", serif;
+  font-size: 16px;
+  font-family: "Tahoma", serif;
 }
 
 .font-18 {
-    font-size:18px;
-    font-family:"Tahoma", serif;
+  font-size: 18px;
+  font-family: "Tahoma", serif;
 }
 
 .font-20 {
-    font-size:20px;
-    font-family:"Tahoma", serif;
+  font-size: 20px;
+  font-family: "Tahoma", serif;
 }
 
 .card-img-sq {
-    width:250px;
-    height:250px;
-    object-fit: contain;
+  width: 250px;
+  height: 250px;
+  object-fit: contain;
 }
 
 .flex-center {
-    /* border:2px solid green; */
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+  /* border:2px solid green; */
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .hide-scroll {
@@ -114,74 +114,83 @@
 }
 
 .accordion {
-    .collapsed {
-        color: #fff;
-        background-color: #2D5430;
-    }
+  .collapsed {
+    color: #fff;
+    background-color: #2d5430;
+  }
 
-    .accordion-button:not(.collapsed) {
-        background-color: #9DE3A9;
-    }
+  .accordion-button:not(.collapsed) {
+    background-color: #9de3a9;
+  }
 
-    .accordion-button:hover {
-        color:#fff;
-        background-color: #9DE3A9;
-    }
+  .accordion-button:hover {
+    color: #fff;
+    background-color: #9de3a9;
+  }
 
-    .accordion-body:hover {
-        background-color: #9DE3A9;
-    }
- }
+  .accordion-body:hover {
+    background-color: #9de3a9;
+  }
+}
 
 /* https://tobiasahlin.com/spinkit/ */
 .spinner-container {
-    height: 100vh; /* Magic here */
-    width:100vw;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh; /* Magic here */
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .spinner {
-    width:250px;
-    height:250px;
-    line-height: 300px;
-    text-align: center;
-    margin:0 auto;
+  width: 250px;
+  height: 250px;
+  line-height: 300px;
+  text-align: center;
+  margin: 0 auto;
 
-    > div {
-        width: 18px;
-        height: 18px;
-        background-color: #333;
+  > div {
+    width: 18px;
+    height: 18px;
+    background-color: #333;
 
-        border-radius: 100%;
-        display: inline-block;
-        -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-        animation: sk-bouncedelay 1.4s infinite ease-in-out both;
-    }
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  }
 
-    .bounce1 {
-        -webkit-animation-delay: -0.32s;
-        animation-delay: -0.32s;
-    }
+  .bounce1 {
+    -webkit-animation-delay: -0.32s;
+    animation-delay: -0.32s;
+  }
 
-    .bounce2 {
-        -webkit-animation-delay: -0.16s;
-        animation-delay: -0.16s;
-    }
+  .bounce2 {
+    -webkit-animation-delay: -0.16s;
+    animation-delay: -0.16s;
+  }
 }
 
 @-webkit-keyframes sk-bouncedelay {
-  0%, 80%, 100% { -webkit-transform: scale(0) }
-  40% { -webkit-transform: scale(1.0) }
+  0%,
+  80%,
+  100% {
+    -webkit-transform: scale(0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+  }
 }
 
 @keyframes sk-bouncedelay {
-  0%, 80%, 100% {
+  0%,
+  80%,
+  100% {
     -webkit-transform: scale(0);
     transform: scale(0);
-  } 40% {
-    -webkit-transform: scale(1.0);
-    transform: scale(1.0);
+  }
+  40% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
   }
 }
