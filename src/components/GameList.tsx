@@ -1,6 +1,6 @@
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import axiosApi from "../../services/axios";
-import Game from "../types/game";
+import Game from "../types/Game";
 import FilterObj from "../types/FilterObj";
 
 interface GameListProps {
