@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useSuspenseInfiniteQuery } from "@tanstack/react-query";
 import axiosApi from "../../services/axios";
 import Game from "../types/Game";
@@ -29,15 +29,37 @@ async function fetchGames({
 }
 
 export default function GameList({ query, filters }: GameListProps) {
-  const { data, fetchNextPage, hasNextPage } = useSuspenseInfiniteQuery({
-    queryKey: ["games", query, filters],
-    queryFn: ({ pageParam }) => fetchGames({ pageParam, query, filters }),
-    initialPageParam: 1,
-    getNextPageParam: (lastPage) =>
-      lastPage.hasMore ? lastPage.nextPage : undefined,
-  });
+  const { data, fetchNextPage, hasNextPage, isFetchingNextPage } =
+    useSuspenseInfiniteQuery({
+      queryKey: ["games", query, filters],
+      queryFn: ({ pageParam }) => fetchGames({ pageParam, query, filters }),
+      initialPageParam: 1,
+      getNextPageParam: (lastPage) =>
+        lastPage.hasMore ? lastPage.nextPage : undefined,
+    });
 
+  const sentinelRef = useRef<HTMLDivElement>(null);
   const allGames: Game[] = data.pages.flatMap((page) => page.games);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        /* console.log(
+          "intersecting:",
+          entries[0].isIntersecting,
+          "hasNextPage:",
+          hasNextPage,
+        ); */
+        if (entries[0].isIntersecting && hasNextPage && !isFetchingNextPage) {
+          fetchNextPage();
+        }
+      },
+      { threshold: 0, rootMargin: "200px" },
+    );
+
+    if (sentinelRef.current) observer.observe(sentinelRef.current);
+    return () => observer.disconnect();
+  }, [hasNextPage, isFetchingNextPage, fetchNextPage]);
 
   return (
     <>
@@ -48,7 +70,16 @@ export default function GameList({ query, filters }: GameListProps) {
           ))}
         </div>
 
-        {hasNextPage && (
+        {/* Sentinel div — triggers next page load when visible */}
+        <div ref={sentinelRef} className="h-1" />
+
+        {isFetchingNextPage && (
+          <div className="flex justify-center p-4">
+            <span className="loading loading-spinner loading-md" />
+          </div>
+        )}
+
+        {/* {hasNextPage && (
           <button
             type="button"
             className="btn btn-warning w-full"
@@ -56,7 +87,7 @@ export default function GameList({ query, filters }: GameListProps) {
           >
             Load More
           </button>
-        )}
+        )} */}
       </div>
     </>
   );

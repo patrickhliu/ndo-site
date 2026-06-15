@@ -118,12 +118,10 @@ function GameCard({ gameObj }: { gameObj: Game }) {
 
   const handleMouseEnter = () => {
     setIsHovering(true);
-    console.log("hovering");
   };
 
   const handleMouseLeave = () => {
     setIsHovering(false);
-    console.log("not hovering");
   };
 
   return (
