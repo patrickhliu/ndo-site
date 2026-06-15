@@ -27,12 +27,18 @@ export default function SearchHeader({ toParent }: HeaderProps) {
 
   return (
     <>
-      <div className="w-screen text-center my-6 border border-blue-200">
-        <span className="text-blue-500 border border-blue-700 px-4 py-2 rounded-2xl">
+      <div className="w-screen text-center my-6 ">
+        <span className="text-blue-500 px-4 py-2 rounded-2xl">
           eShop Scraper
         </span>
-        <div className="sm:container mx-auto xl:w-3xl p-2 border border-blue-200">
-          <form className="relative">
+        <div className="sm:container mx-auto xl:w-3xl p-2">
+          <form
+            className="relative"
+            onSubmit={(e) => {
+              e.preventDefault();
+              toParent(query, filters);
+            }}
+          >
             <div className="join w-full">
               {/* Search Input */}
               <div className="relative flex-1">
