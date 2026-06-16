@@ -1,29 +1,11 @@
 import React, { useState, useEffect } from "react";
-import FilterObj from "../types/FilterObj";
 
 interface HeaderProps {
-  toParent: (query: string, filters: FilterObj) => void;
+  toParent: (query: string) => void;
 }
 
 export default function SearchHeader({ toParent }: HeaderProps) {
   const [query, setQuery] = useState<string>("");
-
-  const [filters, setFilters] = useState<FilterObj>({
-    sort_by: "",
-    sort_dir: "",
-    game_category: [],
-    sales: false,
-    demo: false,
-    format: "",
-    console: "",
-    availability: [],
-    price_range: 0,
-  });
-
-  // when filters are modified, call toParent() to execute api call...
-  useEffect(() => {
-    toParent(query, filters);
-  }, [filters]);
 
   return (
     <>
@@ -36,7 +18,7 @@ export default function SearchHeader({ toParent }: HeaderProps) {
             className="relative"
             onSubmit={(e) => {
               e.preventDefault();
-              toParent(query, filters);
+              toParent(query);
             }}
           >
             <div className="join w-full">
@@ -86,7 +68,7 @@ export default function SearchHeader({ toParent }: HeaderProps) {
                 type="button"
                 className="btn btn-primary join-item"
                 onClick={() => {
-                  toParent(query, filters);
+                  toParent(query);
                 }}
               >
                 Search
